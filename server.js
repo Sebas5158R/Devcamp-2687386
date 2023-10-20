@@ -21,7 +21,7 @@ app.get('/prueba', (request, response) => {
 app.get('/bootcamps', (req, res)=>{
     res.json({
         success: true,
-        msg: "Aqui Se Mostrara Todos Los Bootcamps"
+        msg: "Aqui Se Mostraran Todos Los Bootcamps"
     })
 });
 
@@ -49,7 +49,7 @@ app.put('/bootcamp/:id', (req, res)=>{
     })
 });
 
-// Actualizar un bootcamp por id
+// eliminar un bootcamp por id
 app.delete('/bootcamp/:id', (req, res)=>{
     res.json({
         success: true,
@@ -57,6 +57,92 @@ app.delete('/bootcamp/:id', (req, res)=>{
     })
 });
 
+
+
+//cursos
+app.get('/courses', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se Mostraran Todos Los cursos"
+    })
+});
+
+// Traer un curso por id
+app.get('/course/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui Se Mostrara el curso cuyo id es ${req.params.id}`
+    })
+});
+
+
+//Crear un curso
+app.post('/course', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se creará un curso"
+    })
+});
+
+
+// Actualizar un cursos por id
+app.put('/course/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se editara el curso cuyo id es ${req.params.id}`
+    })
+});
+
+// eliminar un cursos por id
+app.delete('/course/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se eliminara el curso cuyo id es ${req.params.id}`
+    })
+});
+
+
+//Usuarios
+app.get('/users', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se Mostraran Todos Los usuario"
+    })
+});
+
+// Traer un curso por id
+app.get('/user/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui Se Mostrara el usuario cuyo id es ${req.params.id}`
+    })
+});
+
+
+//Crear un curso
+app.post('/user', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se creará un usuario"
+    })
+});
+
+
+// Actualizar un cursos por id
+app.put('/user/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se editara el usuario cuyo id es ${req.params.id}`
+    })
+});
+
+// eliminar un cursos por id
+app.delete('/user/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se eliminara el usuario cuyo id es ${req.params.id}`
+    })
+});
 
 // app.get('/prueba/:id', (request, response) => {
 //     response.send(`Hola, ${request.params.id}`)

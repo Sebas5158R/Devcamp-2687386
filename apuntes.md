@@ -63,3 +63,6 @@ app.get('/prueba/:id', (request, response) => {
 });
 
 En el navegador poner la ruta:http://127.0.0.1:5000/prueba/4
+
+CRUD
+cursos-reviews-usuarios

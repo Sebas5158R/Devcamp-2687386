@@ -59,7 +59,7 @@ app.delete('/bootcamp/:id', (req, res)=>{
 
 
 
-//cursos
+// CURSOS
 app.get('/courses', (req, res)=>{
     res.json({
         success: true,
@@ -102,7 +102,7 @@ app.delete('/course/:id', (req, res)=>{
 });
 
 
-//Usuarios
+// USUARIOS
 app.get('/users', (req, res)=>{
     res.json({
         success: true,
@@ -110,7 +110,7 @@ app.get('/users', (req, res)=>{
     })
 });
 
-// Traer un curso por id
+// Traer un usuario por id
 app.get('/user/:id', (req, res)=>{
     res.json({
         success: true,
@@ -119,7 +119,7 @@ app.get('/user/:id', (req, res)=>{
 });
 
 
-//Crear un curso
+//Crear un usuario
 app.post('/user', (req, res)=>{
     res.json({
         success: true,
@@ -128,7 +128,7 @@ app.post('/user', (req, res)=>{
 });
 
 
-// Actualizar un cursos por id
+// Actualizar un usuario por id
 app.put('/user/:id', (req, res)=>{
     res.json({
         success: true,
@@ -136,11 +136,54 @@ app.put('/user/:id', (req, res)=>{
     })
 });
 
-// eliminar un cursos por id
+// eliminar un usuario por id
 app.delete('/user/:id', (req, res)=>{
     res.json({
         success: true,
         msg: `Aqui se eliminara el usuario cuyo id es ${req.params.id}`
+    })
+});
+
+
+//REVIEWS
+app.get('/reviews', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se Mostraran Todas Las reviews"
+    })
+});
+
+// Traer una review por id
+app.get('/review/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui Se Mostrara la review cuyo id es ${req.params.id}`
+    })
+});
+
+
+//Crear una review
+app.post('/review', (req, res)=>{
+    res.json({
+        success: true,
+        msg: "Aqui Se creará una review"
+    })
+});
+
+
+// Actualizar una review por id
+app.put('/review/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se editara la review cuyo id es ${req.params.id}`
+    })
+});
+
+// eliminar una review por id
+app.delete('/review/:id', (req, res)=>{
+    res.json({
+        success: true,
+        msg: `Aqui se eliminara la review cuyo id es ${req.params.id}`
     })
 });
 

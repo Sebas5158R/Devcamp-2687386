@@ -4,6 +4,8 @@ const colors = require('colors'); //Para poner color a lo que pasa en consola
 const conectarDB = require('./config/db'); // Importando funcion de conectar DB
 //Dependencias de rutas
 const bootcampsRoutes = require('./routes/bootcampsRoutes');
+const coursesRoutes = require('./routes/coursesRoutes');
+const reviewRoutes = require('./routes/reviewsRoutes');
 
 //Vincular en archivo .env
 dotenv.config(
@@ -19,54 +21,12 @@ app.use(express.json())
 
 // Conectar las rutas al objeto app
 app.use('/api/v1/devcamp/bootcamps', bootcampsRoutes)
+app.use('/api/v1/devcamp/courses', coursesRoutes)
+app.use('/api/v1/devcamp/reviews', reviewRoutes)
 
 //Rutas de prueba
 app.get('/prueba', (request, response) => {
     response.send('Hola')
-});
-
-
-
-// CURSOS
-app.get('/courses', (req, res)=>{
-    res.json({
-        success: true,
-        msg: "Aqui Se Mostraran Todos Los cursos"
-    })
-});
-
-// Traer un curso por id
-app.get('/course/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui Se Mostrara el curso cuyo id es ${req.params.id}`
-    })
-});
-
-
-//Crear un curso
-app.post('/course', (req, res)=>{
-    res.json({
-        success: true,
-        msg: "Aqui Se creará un curso"
-    })
-});
-
-
-// Actualizar un cursos por id
-app.put('/course/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui se editara el curso cuyo id es ${req.params.id}`
-    })
-});
-
-// eliminar un cursos por id
-app.delete('/course/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui se eliminara el curso cuyo id es ${req.params.id}`
-    })
 });
 
 
@@ -109,49 +69,6 @@ app.delete('/user/:id', (req, res)=>{
     res.json({
         success: true,
         msg: `Aqui se eliminara el usuario cuyo id es ${req.params.id}`
-    })
-});
-
-
-//REVIEWS
-app.get('/reviews', (req, res)=>{
-    res.json({
-        success: true,
-        msg: "Aqui Se Mostraran Todas Las reviews"
-    })
-});
-
-// Traer una review por id
-app.get('/review/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui Se Mostrara la review cuyo id es ${req.params.id}`
-    })
-});
-
-
-//Crear una review
-app.post('/review', (req, res)=>{
-    res.json({
-        success: true,
-        msg: "Aqui Se creará una review"
-    })
-});
-
-
-// Actualizar una review por id
-app.put('/review/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui se editara la review cuyo id es ${req.params.id}`
-    })
-});
-
-// eliminar una review por id
-app.delete('/review/:id', (req, res)=>{
-    res.json({
-        success: true,
-        msg: `Aqui se eliminara la review cuyo id es ${req.params.id}`
     })
 });
 

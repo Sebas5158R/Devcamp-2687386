@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
             true, "email requerido"
         ],
         match: [
-            /^w+@[a-zA-Z]+?\.[a-zA-A]{2,3}$/,
+            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
             "Email invalido"
         ]
     },
@@ -25,6 +25,30 @@ const userSchema = new mongoose.Schema({
         required: [
             true, "Contraseña requerida"
         ],
-        maxlength: [6, "contraseña muy debil"]
+        maxlength: [6, "contraseña muy debil"],
+        select: false
+    },
+    role: {
+        type: String,
+        enum: ["admin", "user", "publisher"],
+        default: "user"
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
+
+userSchema.pre('save', async function(){
+    // Generar la técnica de sal
+    const sal = await bcryptjs.genSalt(10, this.password)
+    // Encriptar el password
+    this.password = await bcryptjs.hash(this.password, sal)
+})
+
+// Método para comparar la password del usuario VS password del payload
+userSchema.methods.compararPassword = async function(password) {
+    return bcryptjs.compare(password, this.password)
+}
+
+module.exports = mongoose.model('User', userSchema)
